@@ -7,6 +7,7 @@ import { addUser, removeUser } from '../Utils/userSlice';
 import { LOGO, SUPPORTED_LANGUAGES } from '../Utils/constants';
 import { toggleGptSearchView } from '../Utils/gptSlice';
 import {changeLanguage} from "../Utils/configSlice";
+import { removeGPtMovieResult } from '../Utils/gptSlice';
 const Header = () => {
   const dispatch =useDispatch()
   const navigate = useNavigate()
@@ -39,9 +40,13 @@ const Header = () => {
   const handleGptSearchClick=()=>{
     //Toggle GPTSearch
     dispatch(toggleGptSearchView())
+    if(showGptSearch){
+      dispatch(removeGPtMovieResult())
+    }
   }
   const handleLanguageChange=(e)=>{
     dispatch(changeLanguage(e.target.value))
+   
   }
   return (
     <div className='absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between'>
