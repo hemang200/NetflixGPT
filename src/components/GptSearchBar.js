@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import lang from "../Utils/languageConstant";
 import { useDispatch, useSelector } from "react-redux";
-import openai from "../Utils/openai";
 import { API_OPTIONS } from "../Utils/constants";
 import { addGPtMovieResult } from "../Utils/gptSlice";
 import run from "../Utils/geminiai";
